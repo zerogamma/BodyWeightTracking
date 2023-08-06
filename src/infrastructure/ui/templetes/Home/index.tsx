@@ -14,14 +14,14 @@ export const HomeTemplete: FunctionComponent<HomeTempleteProps> = ({ data }) => 
   }
 
   return (
-    <div className={styles.container}>
+    <div className="px-8">
       <Head>
-        <title>clean arch starter for Next.js</title>
-        <meta name="description" content="clean arch starter for Next.js that includes all you need to build amazing apps" />
+        <title>NextJsChallenge</title>
+        <meta name="description" content="Full Stack challenge with Next.js" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main className="main">
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>

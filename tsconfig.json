@@ -17,7 +17,8 @@
     "paths": {
       "~/*": ["./src/*"],
       "~/tests/*": ["./tests/*"],
-      "~/public/*": ["./public/*"]
+      "~/public/*": ["./public/*"],
+      "~/ui/*": ["./src/infrastructure/ui/*"]
     },
     "isolatedModules": true
   },

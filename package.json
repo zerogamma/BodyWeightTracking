@@ -25,11 +25,16 @@
     ]
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.385.0",
+    "@aws-sdk/lib-dynamodb": "^3.385.0",
     "@babel/core": "^7.19.3",
+    "@types/uuid": "^9.0.2",
+    "aws-sdk": "^2.1430.0",
     "next": "12.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "swr": "^2.2.0"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.18.6",

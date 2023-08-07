@@ -1,9 +1,9 @@
-import { InfoUseCase, InfoUserHistoryUseCase, InfoUserUseCase } from '~/application/usecases';
-import { InfoStorage, InfoUserHistoryStorage, InfoUserStorage } from '~/infrastructure/services';
+import { InfoInputUseCase, InfoUserHistoryUseCase, InfoUserUseCase } from '~/application/usecases';
+import { InfoInputStorage, InfoUserHistoryStorage, InfoUserStorage } from '~/infrastructure/services';
 
 export const InfoFactory = () => {
-  const infoStorage = new InfoStorage();
-  const infoUseCase = new InfoUseCase(infoStorage);
+  const infoInputStorage = new InfoInputStorage();
+  const infoUseCase = new InfoInputUseCase(infoInputStorage);
   return infoUseCase;
 };
 

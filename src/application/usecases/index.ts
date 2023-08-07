@@ -1,3 +1,3 @@
-export * from './info-usecase';
+export * from './infoInput-usecase';
 export * from './infoUser-usecase';
 export * from './infoUserHistory-usecase';

@@ -1,16 +1,32 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { FunctionComponent } from 'react';
-import { InfoUser, InfoUserHistory } from '~/domain/entities';
+import { InfoUser, InfoUserBody, InfoUserHistory } from '~/domain/entities';
 import { Footer } from '~/ui/components/Footer';
-import styles from '../Home/styles.module.css';
+import { UserBodyCalcHeader } from '~/ui/components/UserBodyCalcHeader';
+import { UserBodyCalcList } from '~/ui/components/UserBodyCalcList';
+import { UserInputHeader } from '~/ui/components/UserInputHeader';
+import { UserInputList } from '~/ui/components/UserInputList';
 
 type HistoryTempleteProps = {
   data?: InfoUserHistory;
 };
 
 export const HistoryTemplete: FunctionComponent<HistoryTempleteProps> = ({ data }) => {
-  function ShowUserInfo(userInfo: InfoUser, index: number) {
-    return <div>{userInfo.date}</div>;
+  const router = useRouter();
+
+  function ShowUserInfo(userInfo: InfoUser & InfoUserBody, index: number) {
+    return (
+      <div className="bg-slate-800 self-center w-fit p-4 rounded-lg">
+        <UserInputList key={`info-${index}`} {...userInfo} />
+        <UserBodyCalcHeader />
+        <UserBodyCalcList key={`infoBody-${index}`} {...userInfo} />
+      </div>
+    );
+  }
+
+  function HeaderInfor() {
+    return <UserInputHeader />;
   }
 
   return (
@@ -21,10 +37,14 @@ export const HistoryTemplete: FunctionComponent<HistoryTempleteProps> = ({ data 
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="main">
-        <h1 className={styles.title}>Welcome to History</h1>
+      <main className="mainHistory">
+        <h1>Your History</h1>
+        <div className="gridHistory mt-16">{HeaderInfor()}</div>
+        <div className="gridHistory gap-4 overflow-y-scroll h-96">{data?.map(ShowUserInfo)}</div>
 
-        <div className="gridHistory mt-4">{data?.map(ShowUserInfo)}</div>
+        <button onClick={() => router.push('/')} className="self-center border-solid border p-1 rounded-lg mt-8">
+          Return
+        </button>
       </main>
 
       <Footer />

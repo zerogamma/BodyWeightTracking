@@ -1,3 +1,4 @@
 import { InfoUser } from './InfoUser';
+import { InfoUserBody } from './InfoUserBody';
 
-export type InfoUserHistory = InfoUser[];
+export type InfoUserHistory = (InfoUser & InfoUserBody)[];

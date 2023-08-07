@@ -1,20 +1,23 @@
-import { Info, InfoUser, InfoUserHistory } from '~/domain/entities';
+import { InfoInput, InfoUser, InfoUserBody, InfoUserHistory } from '~/domain/entities';
 import { Either } from '~/shared/either';
 
-export interface IInfoUseCase {
-  handle: () => IInfoUseCase.output;
+// Input Information
+export interface IInfoInputUseCase {
+  handle: () => IInfoInputUseCase.output;
 }
-export namespace IInfoUseCase {
-  export type output = Promise<Either<Error, Info[]>>;
+export namespace IInfoInputUseCase {
+  export type output = Promise<Either<Error, InfoInput[]>>;
 }
 
 // User Information
 export interface IInfoUserUseCase {
   handle: () => IInfoUserUseCase.output;
+  save: (data: InfoUser & InfoUserBody) => IInfoUserUseCase.saveOutput;
 }
 
 export namespace IInfoUserUseCase {
   export type output = Promise<Either<Error, InfoUser>>;
+  export type saveOutput = Promise<Either<Error, 'success'>>;
 }
 
 // History User Information

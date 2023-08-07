@@ -1,5 +1,6 @@
 import Document, { DocumentContext, DocumentInitialProps, Head, Html, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import { UserInfoProvider } from '~/infrastructure/context/userInfoContext';
 
 export default class MyDocument extends Document {
   // Styled-componentes setup code.
@@ -31,10 +32,12 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head />
-        <body>
-          <Main />
-          <NextScript />
-        </body>
+        <UserInfoProvider>
+          <body>
+            <Main />
+            <NextScript />
+          </body>
+        </UserInfoProvider>
       </Html>
     );
   }

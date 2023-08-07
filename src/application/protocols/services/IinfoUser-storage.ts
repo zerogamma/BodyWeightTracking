@@ -1,9 +1,9 @@
-import { InfoUser } from '~/domain/entities';
+import { InfoUser, InfoUserBody } from '~/domain/entities';
 import { Either } from '~/shared/either';
 
 export interface IInfoUserStorage {
   get: () => IInfoUserStorage.output;
-  save: () => IInfoUserStorage.success;
+  save: (params: InfoUser & InfoUserBody) => IInfoUserStorage.success;
 }
 
 export namespace IInfoUserStorage {

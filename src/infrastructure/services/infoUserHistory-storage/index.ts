@@ -1,10 +1,8 @@
-import { DynamoDB } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocument, ScanCommand } from '@aws-sdk/lib-dynamodb';
+import { ScanCommand } from '@aws-sdk/lib-dynamodb';
 import { IInfoUserHistoryStorage } from '~/application/protocols/services';
 import { InfoUserHistory } from '~/domain/entities';
+import { awsClient } from '~/shared/aws';
 import { left, right } from '~/shared/either';
-
-const client = DynamoDBDocument.from(new DynamoDB({ region: process.env.AWS_REGION }));
 
 export class InfoUserHistoryStorage implements IInfoUserHistoryStorage {
   async get(): IInfoUserHistoryStorage.output {
@@ -19,7 +17,7 @@ export class InfoUserHistoryStorage implements IInfoUserHistoryStorage {
     });
 
     try {
-      const response = await client.send(params);
+      const response = await awsClient.send(params);
       const HistoryItem = response.Items as InfoUserHistory;
       return right(HistoryItem);
     } catch (e) {

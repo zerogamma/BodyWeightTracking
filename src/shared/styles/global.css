@@ -15,10 +15,13 @@
   .main {
     @apply min-h-screen py-16 flex flex-1 flex-col justify-center items-center;
   }
+  .mainHistory {
+    @apply min-h-screen py-16 flex flex-1 flex-col items-center;
+  }
   .footer {
     @apply flex flex-1 justify-center items-center py-8	border-t border-solid border-neutral-300;
   }
   .gridHistory {
-    @apply flex flex-col justify-center gap-2 flex-wrap max-w-3xl	w-4/5;
+    @apply flex flex-col flex-nowrap w-full;
   }
 }

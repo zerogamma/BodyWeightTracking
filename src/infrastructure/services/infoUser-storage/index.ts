@@ -1,20 +1,37 @@
+import { GetCommand, PutCommand } from '@aws-sdk/lib-dynamodb';
 import { IInfoUserStorage } from '~/application/protocols/services';
-import { right } from '~/shared/either';
+import { InfoUser, InfoUserBody } from '~/domain/entities';
+import { awsClient } from '~/shared/aws';
+import { left, right } from '~/shared/either';
 
 export class InfoUserStorage implements IInfoUserStorage {
   async get(): IInfoUserStorage.output {
-    const data = {
-      weight: 68,
-      neckSize: 37,
-      waistSize: 78,
-      height: 178,
-      age: 36,
-      name: 'Me',
-      date: '06/08/2023',
-    };
-    return right(data);
+    const params = new GetCommand({
+      TableName: process.env.TABLE_NAME,
+      Key: {
+        id: '1',
+      },
+    });
+
+    try {
+      const response = await awsClient.send(params);
+      return right(response.Item as InfoUser);
+    } catch (e) {
+      return left(new Error());
+    }
   }
-  async save(): IInfoUserStorage.success {
-    return right('Success');
+
+  async save(data: InfoUser & InfoUserBody): IInfoUserStorage.success {
+    const command = new PutCommand({
+      TableName: process.env.TABLE_NAME,
+      Item: data,
+    });
+
+    try {
+      const response = await awsClient.send(command);
+      return response ? right('Success') : left(new Error());
+    } catch (error) {
+      return left(new Error());
+    }
   }
 }

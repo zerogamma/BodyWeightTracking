@@ -1,9 +1,9 @@
 import type { GetStaticProps, NextPage } from 'next';
-import { Info } from '~/domain/entities';
+import { InfoInput } from '~/domain/entities';
 import { InfoFactory } from '~/infrastructure/factories';
 import { HomeTemplete } from '~/infrastructure/ui/templetes/Home';
 
-const Home: NextPage<{ data?: Info[] }> = ({ data }) => {
+const Home: NextPage<{ data?: InfoInput[] }> = ({ data }) => {
   return <HomeTemplete data={data} />;
 };
 

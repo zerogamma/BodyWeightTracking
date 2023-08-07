@@ -1,24 +1,26 @@
 import { DynamoDB } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocument, GetCommand } from '@aws-sdk/lib-dynamodb';
+import { DynamoDBDocument, ScanCommand } from '@aws-sdk/lib-dynamodb';
 import { IInfoUserHistoryStorage } from '~/application/protocols/services';
-import { InfoUser } from '~/domain/entities';
+import { InfoUserHistory } from '~/domain/entities';
 import { left, right } from '~/shared/either';
 
 const client = DynamoDBDocument.from(new DynamoDB({ region: process.env.AWS_REGION }));
 
 export class InfoUserHistoryStorage implements IInfoUserHistoryStorage {
   async get(): IInfoUserHistoryStorage.output {
-    // const data = mockHistory;
-    const params = new GetCommand({
+    const params = new ScanCommand({
       TableName: process.env.TABLE_NAME,
-      Key: {
-        id: '1',
+      Select: 'ALL_ATTRIBUTES',
+      ExpressionAttributeNames: { '#userId': 'userId' },
+      ExpressionAttributeValues: {
+        ':userId': '1',
       },
+      FilterExpression: '#userId = :userId',
     });
 
     try {
       const response = await client.send(params);
-      const HistoryItem = [response.Item as InfoUser];
+      const HistoryItem = response.Items as InfoUserHistory;
       return right(HistoryItem);
     } catch (e) {
       return left(new Error());

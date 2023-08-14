@@ -13,6 +13,7 @@ export default async function handler(
   }
 ) {
   if (req.method === 'GET') {
+    console.info('table Name', process.env.TABLE_NAME);
     const { Item } = await client.send(
       new GetItemCommand({
         TableName: process.env.TABLE_NAME,

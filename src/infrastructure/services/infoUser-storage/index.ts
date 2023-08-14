@@ -6,6 +6,7 @@ import { left, right } from '~/shared/either';
 
 export class InfoUserStorage implements IInfoUserStorage {
   async get(): IInfoUserStorage.output {
+    console.info('table Name', process.env.TABLE_NAME);
     const params = new GetCommand({
       TableName: process.env.TABLE_NAME,
       Key: {
@@ -22,6 +23,7 @@ export class InfoUserStorage implements IInfoUserStorage {
   }
 
   async save(data: InfoUser & InfoUserBody): IInfoUserStorage.success {
+    console.info('table Name', process.env.TABLE_NAME);
     const command = new PutCommand({
       TableName: process.env.TABLE_NAME,
       Item: data,

@@ -10,6 +10,17 @@
       "StackName": "amplify-nextjschallenge-dev-95636",
       "StackId": "arn:aws:cloudformation:us-east-1:565157000051:stack/amplify-nextjschallenge-dev-95636/d9dbd600-3521-11ee-bbd4-0ae9f14b33e1",
       "AmplifyAppId": "dfvbpznxgaqhd"
+    },
+    "categories": {
+      "storage": {
+        "BodyInfo": {
+          "tableName": "BodyInfo",
+          "region": "us-east-1",
+          "arn": "arn:aws:dynamodb:us-east-1:565157000051:table/BodyInfo",
+          "partitionKeyName": "id",
+          "partitionKeyType": "S"
+        }
+      }
     }
   }
 }

@@ -11,7 +11,7 @@ const LMCalc = ({ FM, weight }: { FM: number; weight: number }) => {
 };
 
 const BMICalc = ({ weight, height }: { weight: number; height: number }) => {
-  return weight / height ** 2;
+  return weight / (height * 0.01) ** 2;
 };
 
 const BFPBMICalc = ({ BMI, age }: { BMI: number; age: number }) => {

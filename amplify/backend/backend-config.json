@@ -1,0 +1,52 @@
+{
+  "parameters": {
+    "AMPLIFY_storage_BodyInfo_arn": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "BodyInfo"
+        }
+      ]
+    },
+    "AMPLIFY_storage_BodyInfo_partitionKeyName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "BodyInfo"
+        }
+      ]
+    },
+    "AMPLIFY_storage_BodyInfo_partitionKeyType": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "BodyInfo"
+        }
+      ]
+    },
+    "AMPLIFY_storage_BodyInfo_region": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "BodyInfo"
+        }
+      ]
+    },
+    "AMPLIFY_storage_BodyInfo_tableName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "BodyInfo"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "BodyInfo": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB",
+      "serviceType": "imported"
+    }
+  }
+}

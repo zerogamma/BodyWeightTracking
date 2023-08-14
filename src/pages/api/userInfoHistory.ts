@@ -13,10 +13,10 @@ export default async function handler(
   }
 ) {
   if (req.method === 'GET') {
-    console.info('table Name', process.env.TABLE_NAME);
+    console.info('table Name', process.env.AMPLIFY_STORAGE_TABLES);
     const { Item } = await client.send(
       new GetItemCommand({
-        TableName: process.env.TABLE_NAME,
+        TableName: process.env.AMPLIFY_STORAGE_TABLES,
         Key: {
           id: { S: '1' },
         },

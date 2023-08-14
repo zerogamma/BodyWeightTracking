@@ -6,9 +6,9 @@ import { left, right } from '~/shared/either';
 
 export class InfoUserHistoryStorage implements IInfoUserHistoryStorage {
   async get(): IInfoUserHistoryStorage.output {
-    console.info('table Name', process.env.TABLE_NAME);
+    console.info('table Name', process.env.AMPLIFY_STORAGE_TABLES);
     const params = new ScanCommand({
-      TableName: process.env.TABLE_NAME,
+      TableName: process.env.AMPLIFY_STORAGE_TABLES,
       Select: 'ALL_ATTRIBUTES',
       ExpressionAttributeNames: { '#userId': 'userId' },
       ExpressionAttributeValues: {

@@ -1,5 +1,5 @@
 import { AttributeValue, DynamoDBClient, GetItemCommand } from '@aws-sdk/client-dynamodb';
-import { Amplify } from 'aws-amplify';
+import { Amplify, Logger } from 'aws-amplify';
 import awsExports from '~/aws-exports';
 
 Amplify.configure({ ...awsExports, ssr: true });
@@ -16,7 +16,8 @@ export default async function handler(
   }
 ) {
   if (req.method === 'GET') {
-    console.info('table Name', process.env.AMPLIFY_STORAGE_TABLES);
+    const logger = new Logger('foo');
+    logger.info('table Name', process.env.AMPLIFY_STORAGE_TABLES);
     const { Item } = await client.send(
       new GetItemCommand({
         TableName: process.env.AMPLIFY_STORAGE_TABLES,

@@ -20,6 +20,12 @@
           "partitionKeyName": "id",
           "partitionKeyType": "S"
         }
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d19tcmdm1t8i2u",
+          "type": "cicd"
+        }
       }
     }
   }

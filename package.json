@@ -29,6 +29,7 @@
     "@aws-sdk/lib-dynamodb": "^3.385.0",
     "@babel/core": "^7.19.3",
     "@types/uuid": "^9.0.2",
+    "aws-amplify": "^5.3.7",
     "aws-sdk": "^2.1430.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",

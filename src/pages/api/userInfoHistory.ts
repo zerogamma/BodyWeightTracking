@@ -1,5 +1,8 @@
 import { AttributeValue, DynamoDBClient, GetItemCommand } from '@aws-sdk/client-dynamodb';
+import { Amplify } from 'aws-amplify';
+import awsExports from '~/aws-exports';
 
+Amplify.configure({ ...awsExports, ssr: true });
 const client = new DynamoDBClient({});
 
 export default async function handler(

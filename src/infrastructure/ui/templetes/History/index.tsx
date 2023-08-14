@@ -17,8 +17,8 @@ export const HistoryTemplete: FunctionComponent<HistoryTempleteProps> = ({ data 
 
   function ShowUserInfo(userInfo: InfoUser & InfoUserBody, index: number) {
     return (
-      <div className="bg-slate-800 self-center w-fit p-4 rounded-lg">
-        <UserInputList key={`info-${index}`} {...userInfo} />
+      <div className="bg-slate-800 self-center w-fit p-4 rounded-lg" key={`info-${index}`}>
+        <UserInputList {...userInfo} />
         <UserBodyCalcHeader />
         <UserBodyCalcList key={`infoBody-${index}`} {...userInfo} />
       </div>

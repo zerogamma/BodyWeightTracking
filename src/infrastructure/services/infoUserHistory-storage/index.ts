@@ -5,9 +5,9 @@ import { InfoUserHistory } from '~/domain/entities';
 import { awsClient } from '~/shared/aws';
 import { left, right } from '~/shared/either';
 
+const logger = new Logger('APINEXT');
 export class InfoUserHistoryStorage implements IInfoUserHistoryStorage {
   async get(): IInfoUserHistoryStorage.output {
-    const logger = new Logger('foo');
     logger.info('table Name', process.env.AMPLIFY_STORAGE_TABLES);
     const params = new ScanCommand({
       TableName: process.env.AMPLIFY_STORAGE_TABLES,

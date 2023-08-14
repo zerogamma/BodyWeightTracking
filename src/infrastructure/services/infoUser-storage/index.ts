@@ -5,9 +5,9 @@ import { InfoUser, InfoUserBody } from '~/domain/entities';
 import { awsClient } from '~/shared/aws';
 import { left, right } from '~/shared/either';
 
+const logger = new Logger('APINEXT');
 export class InfoUserStorage implements IInfoUserStorage {
   async get(): IInfoUserStorage.output {
-    const logger = new Logger('foo');
     logger.info('table Name', process.env.AMPLIFY_STORAGE_TABLES);
     const params = new GetCommand({
       TableName: process.env.AMPLIFY_STORAGE_TABLES,

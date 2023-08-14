@@ -4,6 +4,7 @@ import awsExports from '~/aws-exports';
 
 Amplify.configure({ ...awsExports, ssr: true });
 const client = new DynamoDBClient({});
+const logger = new Logger('APINEXT');
 
 export default async function handler(
   req: { method: string },
@@ -16,7 +17,6 @@ export default async function handler(
   }
 ) {
   if (req.method === 'GET') {
-    const logger = new Logger('foo');
     logger.info('table Name', process.env.AMPLIFY_STORAGE_TABLES);
     const { Item } = await client.send(
       new GetItemCommand({

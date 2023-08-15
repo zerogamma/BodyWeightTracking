@@ -1,8 +1,6 @@
 import { AttributeValue, DynamoDBClient, GetItemCommand } from '@aws-sdk/client-dynamodb';
-import { Amplify, Logger } from 'aws-amplify';
-import awsExports from '~/aws-exports';
+import { Logger } from 'aws-amplify';
 
-Amplify.configure({ ...awsExports, ssr: true });
 const client = new DynamoDBClient({});
 const logger = new Logger('APINEXT');
 
@@ -20,7 +18,7 @@ export default async function handler(
     logger.info('table Name', process.env.AMPLIFY_STORAGE_TABLES);
     const { Item } = await client.send(
       new GetItemCommand({
-        TableName: process.env.AMPLIFY_STORAGE_TABLES,
+        TableName: 'BodyInfo',
         Key: {
           id: { S: '1' },
         },

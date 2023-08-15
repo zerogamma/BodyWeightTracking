@@ -6,5 +6,5 @@ export interface IInfoUserHistoryStorage {
 }
 
 export namespace IInfoUserHistoryStorage {
-  export type output = Promise<Either<Error, InfoUserHistory>>;
+  export type output = Promise<Either<string, InfoUserHistory>>;
 }

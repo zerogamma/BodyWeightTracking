@@ -19,7 +19,6 @@ export const getStaticProps: GetStaticProps = async () => {
     };
   }
 
-  console.log('front');
   return {
     props: {
       data: result.value,

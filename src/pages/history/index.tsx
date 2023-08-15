@@ -3,8 +3,8 @@ import { InfoUserHistory } from '~/domain/entities';
 import { InfoUserHistoryFactory } from '~/infrastructure/factories';
 import { HistoryTemplete } from '~/infrastructure/ui/templetes/History';
 
-const History: NextPage<{ data?: InfoUserHistory }> = ({ data }) => {
-  return <HistoryTemplete data={data} />;
+const History: NextPage<{ data?: InfoUserHistory; mgs?: string }> = ({ data, mgs }) => {
+  return <HistoryTemplete data={data} mgs={mgs} />;
 };
 
 export const getStaticProps: GetStaticProps = async () => {

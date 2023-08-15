@@ -12,7 +12,7 @@ export class InfoUserHistoryStorage implements IInfoUserHistoryStorage {
   async get(): IInfoUserHistoryStorage.output {
     logger.debug('table Name', process.env.AMPLIFY_STORAGE_TABLES);
     const params = new ScanCommand({
-      TableName: process.env.AMPLIFY_STORAGE_TABLES,
+      TableName: process.env.AMPLIFY_STORAGE_TABLES ? JSON.parse(process.env.AMPLIFY_STORAGE_TABLES)['BodyInfo'] : 'BodyInfo',
       Select: 'ALL_ATTRIBUTES',
       ExpressionAttributeNames: { '#userId': 'userId' },
       ExpressionAttributeValues: {

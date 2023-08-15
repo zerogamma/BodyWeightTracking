@@ -7,6 +7,6 @@ export interface IInfoUserStorage {
 }
 
 export namespace IInfoUserStorage {
-  export type output = Promise<Either<Error, InfoUser>>;
-  export type success = Promise<Either<Error, 'Success'>>;
+  export type output = Promise<Either<string, InfoUser>>;
+  export type success = Promise<Either<string, 'Success'>>;
 }

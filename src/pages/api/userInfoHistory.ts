@@ -18,7 +18,7 @@ export default async function handler(
     logger.info('table Name', process.env.AMPLIFY_STORAGE_TABLES);
     const { Item } = await client.send(
       new GetItemCommand({
-        TableName: 'BodyInfo',
+        TableName: process.env.AMPLIFY_STORAGE_TABLES ? JSON.parse(process.env.AMPLIFY_STORAGE_TABLES)['BodyInfo'] : 'BodyInfo',
         Key: {
           id: { S: '1' },
         },

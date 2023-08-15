@@ -9,7 +9,8 @@
       "UnauthRoleName": "amplify-nextjschallenge-dev-172051-unauthRole",
       "StackName": "amplify-nextjschallenge-dev-172051",
       "StackId": "arn:aws:cloudformation:us-east-1:565157000051:stack/amplify-nextjschallenge-dev-172051/12d07240-3ae0-11ee-a489-0eb84f80c29b",
-      "AmplifyAppId": "d19tcmdm1t8i2u"
+      "AmplifyAppId": "d19tcmdm1t8i2u",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-nextjschallenge-dev-172051-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "storage": {
@@ -26,6 +27,12 @@
           "appId": "d19tcmdm1t8i2u",
           "type": "cicd"
         }
+      },
+      "function": {
+        "LambdaHistory": {}
+      },
+      "auth": {
+        "nextjschallenge": {}
       }
     }
   }

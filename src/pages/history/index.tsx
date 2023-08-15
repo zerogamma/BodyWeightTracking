@@ -14,7 +14,7 @@ export const getStaticProps: GetStaticProps = async () => {
   // if (result.isLeft()) {
   //   return { notFound: true };
   // }
-
+  console.log('front');
   return {
     props: {
       data: [], //result.value,

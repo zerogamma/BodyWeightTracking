@@ -12,8 +12,13 @@ export const getStaticProps: GetStaticProps = async () => {
   const result = await infoHistoryFactory.handle();
 
   if (result.isLeft()) {
-    return { notFound: true };
+    return {
+      props: {
+        data: [],
+      },
+    };
   }
+
   console.log('front');
   return {
     props: {

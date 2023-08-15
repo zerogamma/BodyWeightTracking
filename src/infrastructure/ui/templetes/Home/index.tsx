@@ -53,7 +53,7 @@ export const HomeTemplete: FunctionComponent<HomeTempleteProps> = ({ data }) => 
 
     const response = await fetch(endpoint, options);
     const result = await response.json();
-    if (result.data === 'sucess') router.push('/history');
+    if (result.data === 'sucess') router.push('/history', undefined, { shallow: true });
   }
 
   return (

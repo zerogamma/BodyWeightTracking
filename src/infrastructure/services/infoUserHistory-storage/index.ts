@@ -10,7 +10,7 @@ Amplify.Logger.LOG_LEVEL = 'DEBUG';
 const logger = new Logger('APINEXT', 'INFO');
 export class InfoUserHistoryStorage implements IInfoUserHistoryStorage {
   async get(): IInfoUserHistoryStorage.output {
-    logger.info('table Name', process.env.AMPLIFY_STORAGE_TABLES);
+    logger.debug('table Name', process.env.AMPLIFY_STORAGE_TABLES);
     const params = new ScanCommand({
       TableName: process.env.AMPLIFY_STORAGE_TABLES,
       Select: 'ALL_ATTRIBUTES',
@@ -27,7 +27,7 @@ export class InfoUserHistoryStorage implements IInfoUserHistoryStorage {
       return right(HistoryItem);
     } catch (e) {
       logger.error('error happened', e);
-      return left('error' + e);
+      return left(`error ${e}`);
     }
   }
 }

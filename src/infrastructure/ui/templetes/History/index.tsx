@@ -10,9 +10,10 @@ import { UserInputList } from '~/ui/components/UserInputList';
 
 type HistoryTempleteProps = {
   data?: InfoUserHistory;
+  mgs?: string;
 };
 
-export const HistoryTemplete: FunctionComponent<HistoryTempleteProps> = ({ data }) => {
+export const HistoryTemplete: FunctionComponent<HistoryTempleteProps> = ({ data, mgs = '' }) => {
   const router = useRouter();
 
   function ShowUserInfo(userInfo: InfoUser & InfoUserBody, index: number) {
@@ -41,7 +42,7 @@ export const HistoryTemplete: FunctionComponent<HistoryTempleteProps> = ({ data 
         <h1>Your History</h1>
         <div className="gridHistory mt-16">{HeaderInfor()}</div>
         <div className="gridHistory gap-4 overflow-y-scroll h-96">{data?.map(ShowUserInfo)}</div>
-
+        {mgs && <div className="gridHistory gap-4 overflow-y-scroll h-96">{mgs}</div>}
         <button onClick={() => router.push('/')} className="self-center border-solid border p-1 rounded-lg mt-8">
           Return
         </button>

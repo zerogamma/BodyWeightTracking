@@ -15,6 +15,7 @@ export const getStaticProps: GetStaticProps = async () => {
     return {
       props: {
         data: [],
+        mgs: result.value,
       },
     };
   }

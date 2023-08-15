@@ -1,6 +1,6 @@
 import type { GetStaticProps, NextPage } from 'next';
 import { InfoUserHistory } from '~/domain/entities';
-// import { InfoUserHistoryFactory } from '~/infrastructure/factories';
+import { InfoUserHistoryFactory } from '~/infrastructure/factories';
 import { HistoryTemplete } from '~/infrastructure/ui/templetes/History';
 
 const History: NextPage<{ data?: InfoUserHistory }> = ({ data }) => {
@@ -8,16 +8,16 @@ const History: NextPage<{ data?: InfoUserHistory }> = ({ data }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  // const infoHistoryFactory = InfoUserHistoryFactory();
-  // const result = await infoHistoryFactory.handle();
+  const infoHistoryFactory = InfoUserHistoryFactory();
+  const result = await infoHistoryFactory.handle();
 
-  // if (result.isLeft()) {
-  //   return { notFound: true };
-  // }
+  if (result.isLeft()) {
+    return { notFound: true };
+  }
   console.log('front');
   return {
     props: {
-      data: [], //result.value,
+      data: result.value,
     },
   };
 };

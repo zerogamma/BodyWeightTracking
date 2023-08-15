@@ -29,10 +29,16 @@
         }
       },
       "function": {
-        "LambdaHistory": {}
+        "LambdaHistory": {
+          "deploymentBucketName": "amplify-nextjschallenge-dev-172051-deployment",
+          "s3Key": "amplify-builds/LambdaHistory-714e5a693539454a5a6e-build.zip"
+        }
       },
       "auth": {
         "nextjschallenge": {}
+      },
+      "api": {
+        "apihistory": {}
       }
     }
   }

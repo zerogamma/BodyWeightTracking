@@ -70,6 +70,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_LambdaHistory_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "LambdaHistory"
+        }
+      ]
+    },
+    "AMPLIFY_function_LambdaHistory_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "LambdaHistory"
+        }
+      ]
+    },
     "AMPLIFY_hosting_amplifyhosting_appId": {
       "usedBy": [
         {

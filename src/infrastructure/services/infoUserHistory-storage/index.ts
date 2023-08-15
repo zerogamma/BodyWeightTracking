@@ -8,9 +8,9 @@ import { left, right } from '~/shared/either';
 const logger = new Logger('APINEXT');
 export class InfoUserHistoryStorage implements IInfoUserHistoryStorage {
   async get(): IInfoUserHistoryStorage.output {
-    logger.info('table Name', process.env.AMPLIFY_STORAGE_TABLES);
+    logger.debug('table Name', process.env.AMPLIFY_STORAGE_TABLES);
     const params = new ScanCommand({
-      TableName: process.env.AMPLIFY_STORAGE_TABLES,
+      TableName: 'BodyInfo',
       Select: 'ALL_ATTRIBUTES',
       ExpressionAttributeNames: { '#userId': 'userId' },
       ExpressionAttributeValues: {

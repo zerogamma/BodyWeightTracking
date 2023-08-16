@@ -26,6 +26,9 @@
           "partitionKeyName": "id",
           "partitionKeyType": "S"
         }
+      },
+      "auth": {
+        "nextjschallengeb67ed6a9": {}
       }
     }
   }

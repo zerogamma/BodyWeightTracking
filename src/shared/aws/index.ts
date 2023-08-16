@@ -1,4 +1,12 @@
-import { DynamoDB } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocument } from '@aws-sdk/lib-dynamodb';
+import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 
-export const awsClient = DynamoDBDocument.from(new DynamoDB({ region: process.env.AMPLIFY_STORAGE_REGION }));
+// const credentials = {
+//   region: configuration.aws.region,
+//   credentials: {
+//     accessKeyId: configuration.aws.accessKeyId,
+//     secretAccessKey: configuration.aws.secretAccessKey,
+//   },
+// };
+
+export const awsClient = DynamoDBDocumentClient.from(new DynamoDBClient({}));

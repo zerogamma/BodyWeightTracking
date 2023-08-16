@@ -9,6 +9,7 @@ Amplify.configure({ ...awsExports, ssr: true });
 const logger = new Logger('AWSDYNAMO');
 
 const getSettings = async () => {
+  logger.info('loading credential');
   const credentials = await Auth.currentCredentials();
   const creds = Auth.essentialCredentials(credentials);
   AWS.config.credentials = new AWS.Credentials(creds.accessKeyId, creds.secretAccessKey, creds.sessionToken);

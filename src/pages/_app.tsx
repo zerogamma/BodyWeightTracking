@@ -4,6 +4,11 @@ import { Fragment } from 'react';
 import { GlobalStyles } from '~/shared/styles/globals';
 import '../shared/styles/global.css';
 
+import { Amplify } from 'aws-amplify';
+import awsExports from '../aws-exports';
+
+Amplify.configure({ ...awsExports, ssr: true });
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Fragment>

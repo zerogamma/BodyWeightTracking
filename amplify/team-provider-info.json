@@ -1,0 +1,35 @@
+{
+  "production": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-nextjschallenge-production-120053-authRole",
+      "UnauthRoleArn": "arn:aws:iam::565157000051:role/amplify-nextjschallenge-production-120053-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::565157000051:role/amplify-nextjschallenge-production-120053-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-nextjschallenge-production-120053-deployment",
+      "UnauthRoleName": "amplify-nextjschallenge-production-120053-unauthRole",
+      "StackName": "amplify-nextjschallenge-production-120053",
+      "StackId": "arn:aws:cloudformation:us-east-1:565157000051:stack/amplify-nextjschallenge-production-120053/b48996f0-3c45-11ee-addb-122fbf5b2de3",
+      "AmplifyAppId": "d17fynnga6y660"
+    },
+    "categories": {
+      "storage": {
+        "BodyInfo": {
+          "tableName": "BodyInfo",
+          "region": "us-east-1",
+          "arn": "arn:aws:dynamodb:us-east-1:565157000051:table/BodyInfo",
+          "partitionKeyName": "id",
+          "partitionKeyType": "S"
+        }
+      },
+      "auth": {
+        "nextjschallengedfe23c66": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d17fynnga6y660",
+          "type": "cicd"
+        }
+      }
+    }
+  }
+}

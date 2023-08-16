@@ -5,7 +5,7 @@ import { InfoUser, InfoUserBody } from '~/domain/entities';
 import { awsClient } from '~/shared/aws';
 import { left, right } from '~/shared/either';
 
-const logger = new Logger('APINEXT');
+const logger = new Logger('APINEXT-SAVE');
 export class InfoUserStorage implements IInfoUserStorage {
   async get(): IInfoUserStorage.output {
     logger.info('table Name', process.env.AMPLIFY_STORAGE_TABLES);
@@ -26,7 +26,7 @@ export class InfoUserStorage implements IInfoUserStorage {
   }
 
   async save(data: InfoUser & InfoUserBody): IInfoUserStorage.success {
-    logger.info('table Name', process.env.AMPLIFY_STORAGE_TABLES);
+    logger.info('table Name save', process.env.AMPLIFY_STORAGE_TABLES);
     const command = new PutCommand({
       TableName: process.env.AMPLIFY_STORAGE_TABLES ? JSON.parse(process.env.AMPLIFY_STORAGE_TABLES)['BodyInfo'] : 'BodyInfo',
       Item: data,

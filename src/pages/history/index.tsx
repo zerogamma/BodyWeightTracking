@@ -7,7 +7,7 @@ const History: NextPage<{ data?: InfoUserHistory; mgs?: string }> = ({ data, mgs
   return <HistoryTemplete data={data} mgs={mgs} />;
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetStaticProps = async () => {
   const infoHistoryFactory = InfoUserHistoryFactory();
   const result = await infoHistoryFactory.handle();
 

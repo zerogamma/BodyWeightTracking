@@ -6,6 +6,7 @@ import { awsClient } from '~/shared/aws';
 import { left, right } from '~/shared/either';
 
 const logger = new Logger('APINEXT-SAVE');
+
 export class InfoUserStorage implements IInfoUserStorage {
   async get(): IInfoUserStorage.output {
     logger.info('table Name GET', process.env.AMPLIFY_STORAGE_TABLES);

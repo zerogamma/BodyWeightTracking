@@ -5,8 +5,10 @@ import awsExports from '../../aws-exports';
 
 Amplify.configure({ ...awsExports, ssr: true });
 
-export const awsClient = DynamoDBDocumentClient.from(
-  new DynamoDBClient({
+const getSettings = () => {
+  return new DynamoDBClient({
     region: process.env.AMPLIFY_STORAGE_REGION as string,
-  })
-);
+  });
+};
+
+export const awsClient = DynamoDBDocumentClient.from(getSettings());

@@ -18,7 +18,8 @@ export class InfoUserStorage implements IInfoUserStorage {
     });
 
     try {
-      const response = await awsClient.send(params);
+      const client = await awsClient();
+      const response = await client.send(params);
       return right(response.Item as InfoUser);
     } catch (e) {
       logger.error('error InfoUser Get: ', e);
@@ -34,7 +35,8 @@ export class InfoUserStorage implements IInfoUserStorage {
     });
 
     try {
-      const response = await awsClient.send(command);
+      const client = await awsClient();
+      const response = await client.send(command);
       return response ? right('Success') : left('empty');
     } catch (e) {
       logger.error('error Form Save: ', e);

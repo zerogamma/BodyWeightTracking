@@ -22,7 +22,8 @@ export class InfoUserHistoryStorage implements IInfoUserHistoryStorage {
     });
 
     try {
-      const response = await awsClient.send(params);
+      const client = await awsClient();
+      const response = await client.send(params);
       const HistoryItem = response.Items as InfoUserHistory;
       return right(HistoryItem);
     } catch (e) {

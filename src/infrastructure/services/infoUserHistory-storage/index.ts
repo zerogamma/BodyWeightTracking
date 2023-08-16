@@ -26,7 +26,7 @@ export class InfoUserHistoryStorage implements IInfoUserHistoryStorage {
       const HistoryItem = response.Items as InfoUserHistory;
       return right(HistoryItem);
     } catch (e) {
-      logger.error('error happened', e);
+      logger.error('error History Get: ', e);
       return left(`error ${e}`);
     }
   }

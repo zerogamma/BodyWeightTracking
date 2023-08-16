@@ -5,7 +5,7 @@ import { InfoUserHistory } from '~/domain/entities';
 import { awsClient } from '~/shared/aws';
 import { left, right } from '~/shared/either';
 
-Amplify.Logger.LOG_LEVEL = 'DEBUG';
+Amplify.Logger.LOG_LEVEL = 'INFO';
 
 const logger = new Logger('APINEXT', 'INFO');
 export class InfoUserHistoryStorage implements IInfoUserHistoryStorage {

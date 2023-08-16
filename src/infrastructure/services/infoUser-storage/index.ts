@@ -21,7 +21,7 @@ export class InfoUserStorage implements IInfoUserStorage {
       const response = await awsClient.send(params);
       return right(response.Item as InfoUser);
     } catch (e) {
-      logger.error('error happened', e);
+      logger.error('error InfoUser Get: ', e);
       return left(`error ${e}`);
     }
   }
@@ -37,7 +37,7 @@ export class InfoUserStorage implements IInfoUserStorage {
       const response = await awsClient.send(command);
       return response ? right('Success') : left('empty');
     } catch (e) {
-      logger.error('error happened', e);
+      logger.error('error Form Save: ', e);
       return left(`error ${e}`);
     }
   }

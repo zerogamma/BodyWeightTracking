@@ -15,6 +15,9 @@
   .main {
     @apply min-h-screen py-16 flex flex-1 flex-col justify-center items-center;
   }
+  .mainInfo {
+    @apply min-h-screen pt-16 pb-14 flex flex-1 flex-col items-center;
+  }
   .mainHistory {
     @apply min-h-screen py-16 flex flex-1 flex-col items-center;
   }
@@ -23,5 +26,7 @@
   }
   .gridHistory {
     @apply flex flex-col flex-nowrap w-full;
+  }
+  .login {
   }
 }

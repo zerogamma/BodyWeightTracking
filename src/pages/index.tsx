@@ -1,23 +1,14 @@
 import type { GetStaticProps, NextPage } from 'next';
-import { InfoInput } from '~/domain/entities';
-import { InfoFactory } from '~/infrastructure/factories';
-import { HomeTemplete } from '~/infrastructure/ui/templetes/Home';
+import { HomeTemplate } from '~/infrastructure/ui/template/Home';
 
-const Home: NextPage<{ data?: InfoInput[] }> = ({ data }) => {
-  return <HomeTemplete data={data} />;
+const Home: NextPage<{ data?: [] }> = ({ data }) => {
+  return <HomeTemplate data={data} />;
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const infoFactory = InfoFactory();
-  const result = await infoFactory.handle();
-
-  if (result.isLeft()) {
-    return { notFound: true };
-  }
-
   return {
     props: {
-      data: result.value,
+      data: [],
     },
   };
 };

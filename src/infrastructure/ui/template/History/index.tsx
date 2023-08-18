@@ -2,11 +2,11 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { FunctionComponent } from 'react';
 import { InfoUser, InfoUserBody, InfoUserHistory } from '~/domain/entities';
-import { Footer } from '~/ui/components/Footer';
-import { UserBodyCalcHeader } from '~/ui/components/UserBodyCalcHeader';
-import { UserBodyCalcList } from '~/ui/components/UserBodyCalcList';
-import { UserInputHeader } from '~/ui/components/UserInputHeader';
-import { UserInputList } from '~/ui/components/UserInputList';
+import { Footer } from '~/infrastructure/ui/components/Footer';
+import { UserBodyCalcHeader } from '~/infrastructure/ui/components/UserBodyCalcHeader';
+import { UserBodyCalcList } from '~/infrastructure/ui/components/UserBodyCalcList';
+import { UserInputHeader } from '~/infrastructure/ui/components/UserInputHeader';
+import { UserInputList } from '~/infrastructure/ui/components/UserInputList';
 
 type HistoryTempleteProps = {
   data?: InfoUserHistory;
@@ -33,8 +33,8 @@ export const HistoryTemplete: FunctionComponent<HistoryTempleteProps> = ({ data,
   return (
     <div className="px-8">
       <Head>
-        <title>NextJsChallenge</title>
-        <meta name="description" content="Full Stack challenge with Next.js" />
+        <title>BodyWeightTracker</title>
+        <meta name="description" content="Web App made with Next.js and hosted with AWS" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -43,7 +43,7 @@ export const HistoryTemplete: FunctionComponent<HistoryTempleteProps> = ({ data,
         <div className="gridHistory mt-16">{HeaderInfor()}</div>
         <div className="gridHistory gap-4 overflow-y-scroll h-96">{data?.map(ShowUserInfo)}</div>
         {mgs && <div className="gridHistory gap-4 overflow-y-scroll h-96">{mgs}</div>}
-        <button onClick={() => router.push('/')} className="self-center border-solid border p-1 rounded-lg mt-8">
+        <button onClick={() => router.push('/userInfo')} className="self-center border-solid border p-1 rounded-lg mt-8">
           Return
         </button>
       </main>

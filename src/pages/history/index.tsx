@@ -1,7 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next';
 import { InfoUserHistory } from '~/domain/entities';
 import { InfoUserHistoryFactory } from '~/infrastructure/factories';
-import { HistoryTemplete } from '~/infrastructure/ui/templetes/History';
+import { HistoryTemplete } from '~/infrastructure/ui/template/History';
 
 const History: NextPage<{ data?: InfoUserHistory; mgs?: string }> = ({ data, mgs }) => {
   return <HistoryTemplete data={data} mgs={mgs} />;

@@ -5,16 +5,16 @@ import { useRouter } from 'next/router';
 import { FunctionComponent } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { InfoInput } from '~/domain/entities';
+import { Footer } from '~/infrastructure/ui/components/Footer';
+import { Input } from '~/infrastructure/ui/components/Input';
 import { calcBody } from '~/infrastructure/utils/bodyCalc';
-import { Footer } from '~/ui/components/Footer';
-import { Input } from '~/ui/components/Input';
 import { InputsWrapper } from './style';
 
-type HomeTempleteProps = {
+type UserInfoTemplateProps = {
   data?: Array<InfoInput>;
 };
 
-export const HomeTemplete: FunctionComponent<HomeTempleteProps> = ({ data }) => {
+export const UserInfoTemplate: FunctionComponent<UserInfoTemplateProps> = ({ data }) => {
   const router = useRouter();
   function ShowInput(input: InfoInput, index: number) {
     return <Input key={`input-${index}`} {...input} />;
@@ -59,18 +59,17 @@ export const HomeTemplete: FunctionComponent<HomeTempleteProps> = ({ data }) => 
   return (
     <div className="px-8">
       <Head>
-        <title>NextJsChallenge</title>
-        <meta name="description" content="Full Stack challenge with Next.js" />
+        <title>BodyWeightTracker</title>
+        <meta name="description" content="Web App made with Next.js and hosted with AWS" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="main">
-        <h1>Body Tracker</h1>
-        <h2 className="m-16 flex gap-2">
-          Get started by {` `} filling information or go to
-          <p className="text-blue-900 underline">
-            {` `}
-            <Link href="/history/">History</Link>
+      <main className="mainInfo">
+        <h1 className="mb-16 flex gap-2">Filling your body information</h1>
+        <h2 className="mb-16 flex">
+          Past tracking
+          <p className="text-blue-900 underline ml-2">
+            <Link href="/history/">Information</Link>
           </p>
         </h2>
 

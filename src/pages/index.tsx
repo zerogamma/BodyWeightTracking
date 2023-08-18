@@ -1,5 +1,5 @@
 import type { GetStaticProps, NextPage } from 'next';
-import { HomeTemplate } from '~/infrastructure/ui/template/Home';
+import { HomeTemplate } from '~/infrastructure/ui/templates/Home';
 
 const Home: NextPage<{ data?: [] }> = ({ data }) => {
   return <HomeTemplate data={data} />;

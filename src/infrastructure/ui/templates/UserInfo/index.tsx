@@ -1,11 +1,9 @@
 import moment from 'moment';
-import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FunctionComponent } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { InfoInput } from '~/domain/entities';
-import { Footer } from '~/infrastructure/ui/components/Footer';
 import { Input } from '~/infrastructure/ui/components/Input';
 import { calcBody } from '~/infrastructure/utils/bodyCalc';
 import { InputsWrapper } from './style';
@@ -58,12 +56,6 @@ export const UserInfoTemplate: FunctionComponent<UserInfoTemplateProps> = ({ dat
 
   return (
     <div className="px-8">
-      <Head>
-        <title>BodyWeightTracker</title>
-        <meta name="description" content="Web App made with Next.js and hosted with AWS" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className="mainInfo">
         <h1 className="mb-16 flex gap-2">Filling your body information</h1>
         <h2 className="mb-16 flex">
@@ -80,8 +72,6 @@ export const UserInfoTemplate: FunctionComponent<UserInfoTemplateProps> = ({ dat
           </button>
         </form>
       </main>
-
-      <Footer />
     </div>
   );
 };

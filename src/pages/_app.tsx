@@ -3,6 +3,7 @@ import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Fragment } from 'react';
+import RootLayout from '~/infrastructure/ui/layouts/mainLayout';
 import { GlobalStyles } from '~/shared/styles/globals';
 import awsExports from '../aws-exports';
 import '../shared/styles/global.css';
@@ -23,7 +24,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <GlobalStyles />
       <SessionProvider session={pageProps.session}>
-        <Component {...pageProps} />;
+        <RootLayout>
+          <Component {...pageProps} />
+        </RootLayout>
       </SessionProvider>
     </Fragment>
   );

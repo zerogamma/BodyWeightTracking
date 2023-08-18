@@ -1,8 +1,6 @@
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { FunctionComponent } from 'react';
 import { InfoUser, InfoUserBody, InfoUserHistory } from '~/domain/entities';
-import { Footer } from '~/infrastructure/ui/components/Footer';
 import { UserBodyCalcHeader } from '~/infrastructure/ui/components/UserBodyCalcHeader';
 import { UserBodyCalcList } from '~/infrastructure/ui/components/UserBodyCalcList';
 import { UserInputHeader } from '~/infrastructure/ui/components/UserInputHeader';
@@ -32,12 +30,6 @@ export const HistoryTemplete: FunctionComponent<HistoryTempleteProps> = ({ data,
 
   return (
     <div className="px-8">
-      <Head>
-        <title>BodyWeightTracker</title>
-        <meta name="description" content="Web App made with Next.js and hosted with AWS" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className="mainHistory">
         <h1>Your History</h1>
         <div className="gridHistory mt-16">{HeaderInfor()}</div>
@@ -47,8 +39,6 @@ export const HistoryTemplete: FunctionComponent<HistoryTempleteProps> = ({ data,
           Return
         </button>
       </main>
-
-      <Footer />
     </div>
   );
 };

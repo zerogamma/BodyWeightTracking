@@ -13,7 +13,7 @@
 
 @layer components {
   .main {
-    @apply min-h-screen py-16 flex flex-1 flex-col justify-center items-center;
+    @apply min-h-fit py-16 flex flex-1 flex-col justify-center items-center;
   }
   .mainInfo {
     @apply min-h-screen pt-16 pb-14 flex flex-1 flex-col items-center;

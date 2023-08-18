@@ -1,7 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next';
 import { InfoInput } from '~/domain/entities';
 import { InfoFactory } from '~/infrastructure/factories';
-import { UserInfoTemplate } from '~/infrastructure/ui/template/UserInfo';
+import { UserInfoTemplate } from '~/infrastructure/ui/templates/UserInfo';
 
 const UserInfo: NextPage<{ data?: InfoInput[] }> = ({ data }) => {
   return <UserInfoTemplate data={data} />;

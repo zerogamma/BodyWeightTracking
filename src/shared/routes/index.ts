@@ -4,11 +4,11 @@ export const navItems = [
     name: 'Home',
   },
   {
-    path: '/history',
-    name: 'Hitory',
-  },
-  {
     path: '/userInfo',
     name: 'UserForm',
+  },
+  {
+    path: '/history',
+    name: 'History',
   },
 ];

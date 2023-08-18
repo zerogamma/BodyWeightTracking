@@ -27,6 +27,10 @@
   .gridHistory {
     @apply flex flex-col flex-nowrap w-full;
   }
-  .login {
+  .loginBtn {
+    @apply mr-4 bg-stone-800/80 px-4 py-2 rounded-md;
+  }
+  .navBar {
+    @apply flex p-[0.4rem] rounded-lg mb-12 sticky top-4 z-[100] border border-stone-800/90 bg-stone-900/80 backdrop-blur-md justify-between;
   }
 }

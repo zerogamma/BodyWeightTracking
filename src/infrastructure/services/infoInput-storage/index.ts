@@ -4,8 +4,6 @@ import { right } from '~/shared/either';
 export class InfoInputStorage implements IInfoInputStorage {
   async get(): IInfoInputStorage.output {
     const data = [
-      { label: 'Name', description: 'your name', id: 'name' },
-      { label: 'Age', description: 'your age', id: 'age' },
       {
         label: 'Weight',
         description: 'your weight in kg',

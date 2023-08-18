@@ -1,5 +1,6 @@
 import Document, { DocumentContext, DocumentInitialProps, Head, Html, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
 import { UserInfoProvider } from '~/infrastructure/context/userInfoContext';
 
 export default class MyDocument extends Document {
@@ -31,7 +32,7 @@ export default class MyDocument extends Document {
   render(): JSX.Element {
     return (
       <Html lang="en">
-        <Head />
+        <Head key={uuidv4()} />
         <UserInfoProvider>
           <body>
             <Main />

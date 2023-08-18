@@ -1,6 +1,6 @@
 ## Features
 
-- ⚡️ Next.js 12
+- ⚡️ Next.js 13
 - ⚛️ React 18
 - ⛑ TypeScript
 - ✨ Styled Components - CssInJs for component styling

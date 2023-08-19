@@ -67,7 +67,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.1",
-    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-hooks": "^5.0.0-canary-98f3f14d2-20230818",
     "eslint-plugin-storybook": "^0.6.13",
     "husky": "^8.0.1",
     "postcss": "^8.4.27",

@@ -8,19 +8,12 @@ type HomeTemplateProps = {
   data?: Array<InfoInput>;
 };
 
-type UserIcognito = {
-  attributes: { email: string };
-};
-
 export const HomeTemplate: FunctionComponent<HomeTemplateProps> = () => {
-  // const { data: session } = useSession();
-  // const [user, setUser] = useState<UserIcognito | null>(null);
   const [loading, setLoading] = useState(false);
   const { loggedUser, setLoggedUser } = useContext(UserInfoContext);
 
   async function getUser() {
     const token = await Auth.currentAuthenticatedUser();
-    // setUser(token);
     setLoggedUser(token);
   }
   //listen for sign in + out events, if neither are happening check if user exists

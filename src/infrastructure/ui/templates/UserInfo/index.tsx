@@ -1,12 +1,11 @@
 import moment from 'moment';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FunctionComponent } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { InfoInput } from '~/domain/entities';
 import { Input } from '~/infrastructure/ui/components/Input';
 import { calcBody } from '~/infrastructure/utils/bodyCalc';
-import { InputsWrapper } from './style';
+import { FormWrapper, InforWrapper, InputsWrapper } from './style';
 
 type UserInfoTemplateProps = {
   data?: Array<InfoInput>;
@@ -57,20 +56,16 @@ export const UserInfoTemplate: FunctionComponent<UserInfoTemplateProps> = ({ dat
   return (
     <div className="px-8">
       <main className="mainInfo">
-        <h1 className="mb-16 flex gap-2">Filling your body information</h1>
-        <h2 className="mb-16 flex">
-          Past tracking
-          <p className="text-blue-900 underline ml-2">
-            <Link href="/history/">Information</Link>
-          </p>
-        </h2>
-
-        <form className="flex flex-col gap-8" onSubmit={HandleCalculateAndSave}>
-          <InputsWrapper>{data?.map(ShowInput)}</InputsWrapper>
-          <button type="submit" className="self-end border-solid border p-1 rounded-lg">
-            Calculate and Save
-          </button>
-        </form>
+        <FormWrapper className="form">
+          <h2 className="mb-8 flex gap-2 self-start">Track your body:</h2>
+          <form className="flex flex-col gap-8 ml-[-8rem]" onSubmit={HandleCalculateAndSave}>
+            <InputsWrapper>{data?.map(ShowInput)}</InputsWrapper>
+            <button type="submit" className="self-end border-solid border p-1 rounded-lg">
+              Calculate and Save
+            </button>
+          </form>
+        </FormWrapper>
+        <InforWrapper></InforWrapper>
       </main>
     </div>
   );

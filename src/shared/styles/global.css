@@ -13,13 +13,18 @@
 
 @layer components {
   .main {
-    @apply min-h-fit py-16 flex flex-1 flex-col justify-center items-center;
+    @apply min-h-[60vh] py-16 flex flex-col justify-center items-center;
   }
   .mainInfo {
-    @apply min-h-screen pt-16 pb-14 flex flex-1 flex-col items-center;
+    @apply flex;
   }
   .mainHistory {
-    @apply min-h-screen py-16 flex flex-1 flex-col items-center;
+    @apply min-h-[60vh] flex flex-col items-center;
+  }
+  .form {
+    @apply min-h-[60vh] pb-14 flex flex-col items-center w-1/2;
+  }
+  .info {
   }
   .footer {
     @apply flex flex-1 justify-center items-center py-8	border-t border-solid border-neutral-300;
@@ -31,6 +36,6 @@
     @apply mr-4 bg-stone-800/80 px-4 py-2 rounded-md;
   }
   .navBar {
-    @apply flex p-[0.4rem] rounded-lg mb-12 sticky top-4 z-[100] border border-stone-800/90 bg-stone-900/80 backdrop-blur-md justify-between;
+    @apply flex p-[0.4rem] rounded-lg mb-8 sticky top-4 z-[100] border border-stone-800/90 bg-stone-900/80 backdrop-blur-md justify-between;
   }
 }

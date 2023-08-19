@@ -6,7 +6,7 @@ type ContextType = {
 };
 
 type UserIcognito = {
-  attributes: { email: string };
+  attributes: { email: string; given_name: string; family_name: string; birthdate: string };
 };
 
 export const UserInfoContext = createContext<ContextType>({

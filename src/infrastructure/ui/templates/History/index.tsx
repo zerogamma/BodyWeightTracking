@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { FunctionComponent } from 'react';
 import { InfoUser, InfoUserBody, InfoUserHistory } from '~/domain/entities';
 import { UserBodyCalcHeader } from '~/infrastructure/ui/components/UserBodyCalcHeader';
@@ -12,7 +12,7 @@ type HistoryTempleteProps = {
 };
 
 export const HistoryTemplete: FunctionComponent<HistoryTempleteProps> = ({ data, mgs = '' }) => {
-  const router = useRouter();
+  // const router = useRouter();
 
   function ShowUserInfo(userInfo: InfoUser & InfoUserBody, index: number) {
     return (
@@ -29,15 +29,14 @@ export const HistoryTemplete: FunctionComponent<HistoryTempleteProps> = ({ data,
   }
 
   return (
-    <div className="">
+    <div className="mb-3">
       <main className="mainHistory">
-        <h1>Your History</h1>
-        <div className="gridHistory mt-16 sticky top-[72px] bg-cyan-700 rounded-md p-2 mb-2">{HeaderInfor()}</div>
-        <div className="gridHistory gap-4 overflow-y-scroll h-96">{data?.map(ShowUserInfo)}</div>
-        {mgs && <div className="gridHistory gap-4 overflow-y-scroll h-96">{mgs}</div>}
-        <button onClick={() => router.push('/userInfo')} className="self-center border-solid border p-1 rounded-lg mt-8">
+        <div className="gridHistory sticky top-[72px] bg-cyan-700 rounded-md mb-2">{HeaderInfor()}</div>
+        <div className="gridHistory gap-4 overflow-y-scroll h-full">{data?.map(ShowUserInfo)}</div>
+        {mgs && <div className="gridHistory gap-4 overflow-y-scroll h-full">{mgs}</div>}
+        {/* <button onClick={() => router.push('/userInfo')} className="self-center border-solid border p-1 rounded-lg mt-8">
           Return
-        </button>
+        </button> */}
       </main>
     </div>
   );

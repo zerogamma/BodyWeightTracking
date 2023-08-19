@@ -4,8 +4,8 @@ export const navItems = [
     name: 'Home',
   },
   {
-    path: '/userInfo',
-    name: 'UserForm',
+    path: '/track',
+    name: 'Track',
   },
   {
     path: '/history',

@@ -1,5 +1,4 @@
 import moment from 'moment';
-// import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FunctionComponent } from 'react';
@@ -18,7 +17,6 @@ export const UserInfoTemplate: FunctionComponent<UserInfoTemplateProps> = ({ dat
   function ShowInput(input: InfoInput, index: number) {
     return <Input key={`input-${index}`} {...input} />;
   }
-  // const { data: session } = useSession();
 
   async function HandleCalculateAndSave(event: any) {
     event.preventDefault();

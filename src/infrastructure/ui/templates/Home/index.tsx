@@ -14,6 +14,7 @@ export const HomeTemplate: FunctionComponent<HomeTemplateProps> = () => {
 
   async function getUser() {
     const token = await Auth.currentAuthenticatedUser();
+    console.log(token);
     setLoggedUser(token);
   }
   //listen for sign in + out events, if neither are happening check if user exists

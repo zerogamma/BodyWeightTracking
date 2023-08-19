@@ -1,14 +1,37 @@
 import { Amplify } from 'aws-amplify';
-import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Fragment } from 'react';
+import { UserInfoProvider } from '~/infrastructure/context/userInfoContext';
 import RootLayout from '~/infrastructure/ui/layouts/mainLayout';
 import { GlobalStyles } from '~/shared/styles/globals';
 import awsExports from '../aws-exports';
 import '../shared/styles/global.css';
 
-Amplify.configure({ ...awsExports, ssr: true });
+const isLocalhost = Boolean(
+  typeof window !== 'undefined' &&
+    (window.location.hostname === 'localhost' ||
+      // [::1] is the IPv6 localhost address.
+      window.location.hostname === '[::1]' ||
+      // 127.0.0.1/8 is considered localhost for IPv4.
+      window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/))
+);
+
+// split redirect signin and signout strings into correct URIs
+const [productionRedirectSignIn, localRedirectSignIn] = awsExports.oauth.redirectSignIn.split(',');
+const [productionRedirectSignOut, localRedirectSignOut] = awsExports.oauth.redirectSignOut.split(',');
+
+// use correct URI in the right env
+const updatedAwsConfig = {
+  ...awsExports,
+  oauth: {
+    ...awsExports.oauth,
+    redirectSignIn: isLocalhost ? localRedirectSignIn : productionRedirectSignIn,
+    redirectSignOut: isLocalhost ? localRedirectSignOut : productionRedirectSignOut,
+  },
+};
+
+Amplify.configure(updatedAwsConfig);
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -23,11 +46,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
       </Head>
       <GlobalStyles />
-      <SessionProvider session={pageProps.session}>
-        <RootLayout>
-          <Component {...pageProps} />
-        </RootLayout>
-      </SessionProvider>
+      <div className="flex justify-center">
+        <UserInfoProvider>
+          <RootLayout>
+            <Component {...pageProps} />
+          </RootLayout>
+        </UserInfoProvider>
+      </div>
     </Fragment>
   );
 }

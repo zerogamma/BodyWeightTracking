@@ -1,17 +1,18 @@
 'use client';
 
+import { Auth } from 'aws-amplify';
 import { motion } from 'framer-motion';
-import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { UserInfoContext } from '~/infrastructure/context/userInfoContext';
 import { navItems } from '~/shared/routes';
 
 export default function NavBar() {
   const pathname = usePathname() || '/';
+  const { loggedUser } = useContext(UserInfoContext);
 
   const [hoveredPath, setHoveredPath] = useState(pathname);
-  const { data: session } = useSession();
 
   useEffect(() => {
     setHoveredPath(pathname);
@@ -57,8 +58,8 @@ export default function NavBar() {
           })}
         </nav>
       </div>
-      {session && (
-        <button className="loginBtn" onClick={() => signOut()}>
+      {loggedUser && (
+        <button className="loginBtn" onClick={() => Auth.signOut()}>
           Sign out
         </button>
       )}

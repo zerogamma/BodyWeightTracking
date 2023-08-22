@@ -57,9 +57,16 @@ export const UserInfoTemplate: FunctionComponent<UserInfoTemplateProps> = ({ dat
       body: Jsonfy,
     };
 
-    // const response = await fetch(endpoint, options);
-    // const result = await response.json();
-    // if (result.data === 'sucess') router.push('/history', undefined, { shallow: true });
+    const response = await fetch(endpoint, options);
+    const result = await response.json();
+    if (result.data === 'sucess')
+      router.push(
+        {
+          pathname: '/history',
+          query: { query: loggedUser?.username },
+        },
+        undefined
+      );
   }
 
   return (

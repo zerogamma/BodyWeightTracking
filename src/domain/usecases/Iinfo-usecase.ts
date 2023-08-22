@@ -11,7 +11,7 @@ export namespace IInfoInputUseCase {
 
 // User Information
 export interface IInfoUserUseCase {
-  handle: () => IInfoUserUseCase.output;
+  handle: (param: string) => IInfoUserUseCase.output;
   save: (data: InfoUser & InfoUserBody) => IInfoUserUseCase.saveOutput;
 }
 

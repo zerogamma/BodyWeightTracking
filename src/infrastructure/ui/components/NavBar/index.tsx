@@ -39,7 +39,7 @@ export default function NavBar() {
                 <span>{item.name}</span>
                 {item.path === hoveredPath && (
                   <motion.div
-                    className="absolute bottom-0 left-0 h-full bg-stone-800/80 rounded-md -z-10"
+                    className="absolute bottom-0 left-0 h-full subColor rounded-md -z-10"
                     layoutId="navbar"
                     aria-hidden="true"
                     style={{

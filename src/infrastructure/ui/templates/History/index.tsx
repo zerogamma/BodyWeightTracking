@@ -29,7 +29,7 @@ export const HistoryTemplete: FunctionComponent<HistoryTempleteProps> = ({ data,
   return (
     <div className="">
       <main className="mainHistory">
-        <div className="gridHistory sticky top-[72px] bg-cyan-700 rounded-md mb-2">{HeaderInfor()}</div>
+        <div className="gridHistory subColor sticky top-[72px] rounded-md mb-2">{HeaderInfor()}</div>
         <div className="gridHistory gap-4 overflow-y-scroll h-[54vh]">{data?.map(ShowUserInfo)}</div>
         {mgs && <div className="gridHistory gap-4 overflow-y-scroll h-full">{mgs}</div>}
       </main>

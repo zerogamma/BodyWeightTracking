@@ -3,9 +3,10 @@ import Head from 'next/head';
 // import { usePathname } from 'next/navigation';
 import { useContext, useEffect } from 'react';
 import { UserInfoContext } from '~/infrastructure/context/userInfoContext';
-import { Footer } from '~/infrastructure/ui/components/Footer';
-import NavBar from '~/infrastructure/ui/components/NavBar';
-import { SignIn } from '~/infrastructure/ui/components/SignIn';
+import { Background } from '~/ui/components/Background';
+import { Footer } from '~/ui/components/Footer';
+import NavBar from '~/ui/components/NavBar';
+import { SignIn } from '~/ui/components/SignIn';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const { setLoggedUser, loggedUser } = useContext(UserInfoContext);
@@ -36,19 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <meta name="description" content="Web App made with Next.js and hosted with AWS" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <ul className="background">
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
+        <Background />
         <div className="flex flex-col gap-2 justify-center">
           <h2 className="mb-0 text-zinc-100 font-bold">Body Weight Tracking</h2>
         </div>

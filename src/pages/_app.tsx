@@ -3,8 +3,8 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Fragment } from 'react';
 import { UserInfoProvider } from '~/infrastructure/context/userInfoContext';
-import RootLayout from '~/infrastructure/ui/layouts/mainLayout';
 import { GlobalStyles } from '~/shared/styles/globals';
+import RootLayout from '~/ui/layouts/mainLayout';
 import awsExports from '../aws-exports';
 import '../shared/styles/global.css';
 

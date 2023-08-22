@@ -1,7 +1,7 @@
 import type { GetServerSideProps, NextPage } from 'next';
 import { InfoUserHistory } from '~/domain/entities';
 import { InfoUserHistoryFactory } from '~/infrastructure/factories';
-import { HistoryTemplete } from '~/infrastructure/ui/templates/History';
+import { HistoryTemplete } from '~/ui/templates/History';
 
 const History: NextPage<{ data?: InfoUserHistory; mgs?: string }> = ({ data, mgs }) => {
   return <HistoryTemplete data={data} mgs={mgs} />;

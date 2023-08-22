@@ -4,8 +4,8 @@ import { FunctionComponent, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { InfoInput } from '~/domain/entities';
 import { UserInfoContext } from '~/infrastructure/context/userInfoContext';
-import { Input } from '~/infrastructure/ui/components/Input';
 import { calcBody } from '~/infrastructure/utils/bodyCalc';
+import { Input } from '~/ui/components/Input';
 import { FormWrapper, InforWrapper, InputsWrapper } from './style';
 
 type UserInfoTemplateProps = {

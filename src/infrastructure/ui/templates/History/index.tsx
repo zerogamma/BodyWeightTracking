@@ -1,10 +1,10 @@
 // import { useRouter } from 'next/router';
 import { FunctionComponent } from 'react';
 import { InfoUser, InfoUserBody, InfoUserHistory } from '~/domain/entities';
-import { UserBodyCalcHeader } from '~/infrastructure/ui/components/UserBodyCalcHeader';
-import { UserBodyCalcList } from '~/infrastructure/ui/components/UserBodyCalcList';
-import { UserInputHeader } from '~/infrastructure/ui/components/UserInputHeader';
-import { UserInputList } from '~/infrastructure/ui/components/UserInputList';
+import { UserBodyCalcHeader } from '~/ui/components/UserBodyCalcHeader';
+import { UserBodyCalcList } from '~/ui/components/UserBodyCalcList';
+import { UserInputHeader } from '~/ui/components/UserInputHeader';
+import { UserInputList } from '~/ui/components/UserInputList';
 
 type HistoryTempleteProps = {
   data?: InfoUserHistory;

@@ -2,7 +2,7 @@ import { InfoUser, InfoUserBody } from '~/domain/entities';
 import { Either } from '~/shared/either';
 
 export interface IInfoUserStorage {
-  get: () => IInfoUserStorage.output;
+  get: (params: string) => IInfoUserStorage.output;
   save: (params: InfoUser & InfoUserBody) => IInfoUserStorage.success;
 }
 

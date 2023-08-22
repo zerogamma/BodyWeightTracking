@@ -8,12 +8,12 @@ import { left, right } from '~/shared/either';
 const logger = new Logger('APINEXT-SAVE');
 
 export class InfoUserStorage implements IInfoUserStorage {
-  async get(): IInfoUserStorage.output {
-    logger.info('table Name GET', process.env.AMPLIFY_STORAGE_TABLES);
+  async get(userId: string): IInfoUserStorage.output {
+    const table = process.env.MAIN_TABLE as string;
     const params = new GetCommand({
-      TableName: process.env.AMPLIFY_STORAGE_TABLES ? JSON.parse(process.env.AMPLIFY_STORAGE_TABLES)['BodyInfo'] : 'BodyInfo',
+      TableName: process.env.AMPLIFY_STORAGE_TABLES ? JSON.parse(process.env.AMPLIFY_STORAGE_TABLES)[table] : table,
       Key: {
-        id: '1',
+        id: userId,
       },
     });
 
@@ -28,9 +28,9 @@ export class InfoUserStorage implements IInfoUserStorage {
   }
 
   async save(data: InfoUser & InfoUserBody): IInfoUserStorage.success {
-    logger.info('table Name save', process.env.AMPLIFY_STORAGE_TABLES);
+    const table = process.env.MAIN_TABLE as string;
     const command = new PutCommand({
-      TableName: process.env.AMPLIFY_STORAGE_TABLES ? JSON.parse(process.env.AMPLIFY_STORAGE_TABLES)['BodyInfo'] : 'BodyInfo',
+      TableName: process.env.AMPLIFY_STORAGE_TABLES ? JSON.parse(process.env.AMPLIFY_STORAGE_TABLES)[table] : table,
       Item: data,
     });
 

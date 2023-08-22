@@ -12,11 +12,9 @@ type HistoryTempleteProps = {
 };
 
 export const HistoryTemplete: FunctionComponent<HistoryTempleteProps> = ({ data, mgs = '' }) => {
-  // const router = useRouter();
-
   function ShowUserInfo(userInfo: InfoUser & InfoUserBody, index: number) {
     return (
-      <div className="bg-slate-800 self-center w-fit p-4 rounded-lg" key={`info-${index}`}>
+      <div className="bg-slate-800 self-center w-fit py-4 rounded-lg" key={`info-${index}`}>
         <UserInputList {...userInfo} />
         <UserBodyCalcHeader />
         <UserBodyCalcList key={`infoBody-${index}`} {...userInfo} />
@@ -29,14 +27,11 @@ export const HistoryTemplete: FunctionComponent<HistoryTempleteProps> = ({ data,
   }
 
   return (
-    <div className="mb-3">
+    <div className="">
       <main className="mainHistory">
         <div className="gridHistory sticky top-[72px] bg-cyan-700 rounded-md mb-2">{HeaderInfor()}</div>
-        <div className="gridHistory gap-4 overflow-y-scroll h-full">{data?.map(ShowUserInfo)}</div>
+        <div className="gridHistory gap-4 overflow-y-scroll h-[54vh]">{data?.map(ShowUserInfo)}</div>
         {mgs && <div className="gridHistory gap-4 overflow-y-scroll h-full">{mgs}</div>}
-        {/* <button onClick={() => router.push('/userInfo')} className="self-center border-solid border p-1 rounded-lg mt-8">
-          Return
-        </button> */}
       </main>
     </div>
   );

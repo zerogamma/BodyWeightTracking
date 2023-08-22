@@ -1,8 +1,9 @@
 import moment from 'moment';
 import { useRouter } from 'next/router';
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { InfoInput } from '~/domain/entities';
+import { UserInfoContext } from '~/infrastructure/context/userInfoContext';
 import { Input } from '~/infrastructure/ui/components/Input';
 import { calcBody } from '~/infrastructure/utils/bodyCalc';
 import { FormWrapper, InforWrapper, InputsWrapper } from './style';
@@ -13,6 +14,8 @@ type UserInfoTemplateProps = {
 
 export const UserInfoTemplate: FunctionComponent<UserInfoTemplateProps> = ({ data }) => {
   const router = useRouter();
+  const { loggedUser } = useContext(UserInfoContext);
+
   function ShowInput(input: InfoInput, index: number) {
     return <Input key={`input-${index}`} {...input} />;
   }
@@ -38,7 +41,13 @@ export const UserInfoTemplate: FunctionComponent<UserInfoTemplateProps> = ({ dat
       age: +dataBody.age,
     });
 
-    const Jsonfy = JSON.stringify({ ...dataBody, date: moment().format('DD/MM/YYYY'), userId: '1', id: uuidv4(), ...bodyCalc });
+    const Jsonfy = JSON.stringify({
+      ...dataBody,
+      date: moment().format('DD/MM/YYYY'),
+      userId: loggedUser?.username,
+      id: uuidv4(),
+      ...bodyCalc,
+    });
 
     const options = {
       method: 'POST',
@@ -48,9 +57,9 @@ export const UserInfoTemplate: FunctionComponent<UserInfoTemplateProps> = ({ dat
       body: Jsonfy,
     };
 
-    const response = await fetch(endpoint, options);
-    const result = await response.json();
-    if (result.data === 'sucess') router.push('/history', undefined, { shallow: true });
+    // const response = await fetch(endpoint, options);
+    // const result = await response.json();
+    // if (result.data === 'sucess') router.push('/history', undefined, { shallow: true });
   }
 
   return (

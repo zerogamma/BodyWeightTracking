@@ -9,14 +9,14 @@ Amplify.Logger.LOG_LEVEL = 'INFO';
 
 const logger = new Logger('APINEXT', 'INFO');
 export class InfoUserHistoryStorage implements IInfoUserHistoryStorage {
-  async get(): IInfoUserHistoryStorage.output {
-    logger.debug('table Name', process.env.AMPLIFY_STORAGE_TABLES);
+  async get(query: string): IInfoUserHistoryStorage.output {
+    const table = process.env.MAIN_TABLE as string;
     const params = new ScanCommand({
-      TableName: process.env.AMPLIFY_STORAGE_TABLES ? JSON.parse(process.env.AMPLIFY_STORAGE_TABLES)['BodyInfo'] : 'BodyInfo',
+      TableName: process.env.AMPLIFY_STORAGE_TABLES ? JSON.parse(process.env.AMPLIFY_STORAGE_TABLES)[table] : table,
       Select: 'ALL_ATTRIBUTES',
       ExpressionAttributeNames: { '#userId': 'userId' },
       ExpressionAttributeValues: {
-        ':userId': '1',
+        ':userId': query,
       },
       FilterExpression: '#userId = :userId',
     });

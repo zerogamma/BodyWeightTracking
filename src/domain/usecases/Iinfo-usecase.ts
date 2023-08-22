@@ -22,7 +22,7 @@ export namespace IInfoUserUseCase {
 
 // History User Information
 export interface IInfoUserHistoryUseCase {
-  handle: () => IInfoUserHistoryUseCase.output;
+  handle: (query: string) => IInfoUserHistoryUseCase.output;
 }
 
 export namespace IInfoUserHistoryUseCase {

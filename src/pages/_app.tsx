@@ -38,8 +38,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Fragment>
       <Head>
         <title>BodyWeightTracker</title>
-        <link rel="shortcut icon" href="/img-512.png" />
-        <link rel="apple-touch-icon" href="/img-512.png" />
         <meta
           name="BodyWeightTracker"
           content="A simple project with Typescript, ReactJs, NextJs, Styled Components, tailwind and Clean Architecture with TDD "

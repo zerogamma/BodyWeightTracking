@@ -24,6 +24,7 @@ export default function NavBar() {
         <nav className="flex gap-2 relative justify-start w-full z-[100]  rounded-lg">
           {navItems.map((item) => {
             const isActive = item.path === pathname;
+            const query = item.path === '/history' ? { query: loggedUser?.username } : {};
             return (
               <Link
                 key={item.path}
@@ -31,7 +32,7 @@ export default function NavBar() {
                   isActive ? 'text-zinc-100' : 'text-zinc-400'
                 }`}
                 data-active={isActive}
-                href={item.path}
+                href={{ pathname: item.path, query }}
                 onMouseOver={() => setHoveredPath(item.path)}
                 onMouseLeave={() => setHoveredPath(pathname)}
               >

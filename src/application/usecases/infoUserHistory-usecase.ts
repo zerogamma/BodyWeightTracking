@@ -9,8 +9,8 @@ export class InfoUserHistoryUseCase implements IInfoUserHistoryUseCase {
     this.infoStorage = infoStorage;
   }
 
-  async handle(): IInfoUserHistoryUseCase.output {
-    const result = await this.infoStorage.get();
+  async handle(query: string): IInfoUserHistoryUseCase.output {
+    const result = await this.infoStorage.get(query);
 
     if (result.isLeft()) {
       return left(new Error('Data Fetching failed!! Try refreshing the page.'));

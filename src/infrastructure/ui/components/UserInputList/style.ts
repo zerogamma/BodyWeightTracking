@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const UserInputListWrapper = styled.div.attrs({
-  className: 'flex gap-2 items-center justify-center',
+  className: 'flex gap-2 items-center justify-center mx-4',
 })``;
 
 export const UserInputCard = styled.div.attrs({

@@ -2,10 +2,10 @@ import { Auth, Hub } from 'aws-amplify';
 import Head from 'next/head';
 import { useContext, useEffect } from 'react';
 import { UserInfoContext } from '~/infrastructure/context/userInfoContext';
+import { SignIn } from '~/infrastructure/ui/templates/SignIn';
 import { Background } from '~/ui/components/Background';
 import { Footer } from '~/ui/components/Footer';
 import NavBar from '~/ui/components/NavBar';
-import { SignIn } from '~/ui/components/SignIn';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const { setLoggedUser, loggedUser } = useContext(UserInfoContext);

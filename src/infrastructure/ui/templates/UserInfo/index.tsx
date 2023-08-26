@@ -16,7 +16,12 @@ export const UserInfoTemplate: FunctionComponent<UserInfoTemplateProps> = ({ dat
   const router = useRouter();
   const { loggedUser } = useContext(UserInfoContext);
 
+  const validateHeightAge = (value: string) => {
+    return (value === 'height' && loggedUser?.attributes.height) || (value === 'age' && loggedUser?.attributes.age);
+  };
+
   function ShowInput(input: InfoInput, index: number) {
+    if (validateHeightAge(input.id)) return <div key={`input-empty-${index}`}></div>;
     return <Input key={`input-${index}`} {...input} />;
   }
 
@@ -27,26 +32,32 @@ export const UserInfoTemplate: FunctionComponent<UserInfoTemplateProps> = ({ dat
     const dataBody = data
       ? data.reduce(
           (saved, current) => {
+            if (validateHeightAge(current.id)) return saved;
             return { ...saved, [current.id]: event.target[current.id].value };
           },
-          { waistSize: 0, neckSize: 0, weight: 0, height: 0, age: 0 }
+          { waistSize: 0, neckSize: 0, weight: 0 }
         )
-      : { waistSize: 0, neckSize: 0, weight: 0, height: 0, age: 0 };
+      : { waistSize: 0, neckSize: 0, weight: 0 };
+
+    const userData = loggedUser?.attributes.height
+      ? { height: loggedUser?.attributes.height, age: loggedUser?.attributes.age }
+      : { height: event.target['height'].value, age: event.target['age'].value };
 
     const bodyCalc = calcBody({
       waistSize: +dataBody.waistSize,
       neckSize: +dataBody.neckSize,
       weight: +dataBody.weight,
-      height: +dataBody.height,
-      age: +dataBody.age,
+      height: +userData.height,
+      age: +userData.age,
     });
 
     const Jsonfy = JSON.stringify({
       ...dataBody,
-      date: moment().format('DD/MM/YYYY'),
+      date: moment().format(),
+      uniqueId: uuidv4(),
       userId: loggedUser?.username,
-      id: uuidv4(),
       ...bodyCalc,
+      ...userData,
     });
 
     const options = {

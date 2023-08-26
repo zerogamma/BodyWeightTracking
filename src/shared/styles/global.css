@@ -12,14 +12,20 @@
 }
 
 @layer components {
+  .mainBase {
+    @apply min-h-[60vh] flex flex-col;
+  }
   .main {
-    @apply min-h-[60vh] py-16 flex flex-col justify-center items-center;
+    @apply mainBase py-16 justify-center items-center;
+  }
+  .mainLoging {
+    @apply mainBase;
   }
   .mainInfo {
     @apply flex;
   }
   .mainHistory {
-    @apply min-h-[60vh] flex flex-col items-center;
+    @apply mainBase items-center;
   }
   .form {
     @apply min-h-[60vh] pb-14 flex flex-col items-center w-1/2;
@@ -31,10 +37,13 @@
     @apply flex flex-col flex-nowrap w-full;
   }
   .loginBtn {
-    @apply mr-4 subColor px-4 py-2 rounded-md;
+    @apply mx-4 subColor rounded-md w-[6rem] h-9;
   }
   .navBar {
     @apply flex p-[0.4rem] rounded-lg mb-8 sticky top-4 z-[100] border border-stone-800/90 bg-stone-900/80 backdrop-blur-md justify-between;
+  }
+  .bgColor {
+    @apply bg-stone-900/80;
   }
   .subColor {
     @apply bg-cyan-600/60;

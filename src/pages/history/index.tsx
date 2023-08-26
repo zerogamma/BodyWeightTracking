@@ -12,10 +12,11 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const result = await infoHistoryFactory.handle(query.query ? (query.query as string) : '');
 
   if (result.isLeft()) {
+    console.log(result.value);
     return {
       props: {
         data: [],
-        mgs: result.value,
+        mgs: result.value.message,
       },
     };
   }

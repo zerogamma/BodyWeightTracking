@@ -13,6 +13,7 @@ export namespace IInfoInputUseCase {
 export interface IInfoUserUseCase {
   handle: (param: string) => IInfoUserUseCase.output;
   save: (data: InfoUser & InfoUserBody) => IInfoUserUseCase.saveOutput;
+  delete: (itemId: { userId: string; uniqueId: string }) => IInfoUserUseCase.saveOutput;
 }
 
 export namespace IInfoUserUseCase {

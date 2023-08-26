@@ -1,5 +1,6 @@
 'use client';
 
+import { Loader } from '@aws-amplify/ui-react';
 import { Auth } from 'aws-amplify';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -11,6 +12,7 @@ import { navItems } from '~/shared/routes';
 export default function NavBar() {
   const pathname = usePathname() || '/';
   const { loggedUser } = useContext(UserInfoContext);
+  const [loadingOut, setLoadingOut] = useState<boolean>(false);
 
   const [hoveredPath, setHoveredPath] = useState(pathname);
 
@@ -60,9 +62,18 @@ export default function NavBar() {
         </nav>
       </div>
       {loggedUser && (
-        <button className="loginBtn" onClick={() => Auth.signOut()}>
-          Sign out
-        </button>
+        <div className="flex items-center">
+          {loadingOut && <Loader />}
+          <button
+            className="loginBtn"
+            onClick={() => {
+              setLoadingOut(true);
+              Auth.signOut();
+            }}
+          >
+            Sign out
+          </button>
+        </div>
       )}
     </div>
   );

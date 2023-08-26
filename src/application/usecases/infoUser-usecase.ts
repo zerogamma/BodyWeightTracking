@@ -26,4 +26,12 @@ export class InfoUserUseCase implements IInfoUserUseCase {
     }
     return right('success');
   }
+
+  async delete(itemId: { userId: string; uniqueId: string }): IInfoUserUseCase.saveOutput {
+    const result = await this.infoStorage.delete(itemId);
+    if (result.isLeft()) {
+      return left(new Error('Data Fetching failed!! Try refreshing the page.'));
+    }
+    return right('success');
+  }
 }

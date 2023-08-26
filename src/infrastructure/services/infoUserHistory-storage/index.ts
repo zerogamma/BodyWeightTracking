@@ -1,24 +1,28 @@
-import { ScanCommand } from '@aws-sdk/lib-dynamodb';
+import { QueryCommand } from '@aws-sdk/lib-dynamodb';
 import { Amplify, Logger } from 'aws-amplify';
 import { IInfoUserHistoryStorage } from '~/application/protocols/services';
 import { InfoUserHistory } from '~/domain/entities';
 import { awsClient } from '~/shared/aws';
 import { left, right } from '~/shared/either';
+import { tableName } from '../config';
 
 Amplify.Logger.LOG_LEVEL = 'INFO';
 
 const logger = new Logger('APINEXT', 'INFO');
 export class InfoUserHistoryStorage implements IInfoUserHistoryStorage {
   async get(query: string): IInfoUserHistoryStorage.output {
-    const table = process.env.MAIN_TABLE as string;
-    const params = new ScanCommand({
-      TableName: process.env.AMPLIFY_STORAGE_TABLES ? JSON.parse(process.env.AMPLIFY_STORAGE_TABLES)[table] : table,
+    const params = new QueryCommand({
+      TableName: tableName,
       Select: 'ALL_ATTRIBUTES',
-      ExpressionAttributeNames: { '#userId': 'userId' },
+      KeyConditionExpression: '#userId = :userId',
+      ExpressionAttributeNames: {
+        '#userId': 'userId',
+      },
       ExpressionAttributeValues: {
         ':userId': query,
       },
-      FilterExpression: '#userId = :userId',
+      IndexName: 'userId-date-index',
+      ScanIndexForward: false,
     });
 
     try {

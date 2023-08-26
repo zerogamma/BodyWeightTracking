@@ -15,14 +15,14 @@ export const SignIn = () => {
   }, [code]);
 
   return (
-    <main className="main">
+    <main className="mainLoging">
       {loading ? (
         <div className="flex items-center gap-4">
           <Loader width="3rem" height="3rem" />
           Loading...
         </div>
       ) : (
-        <div>
+        <div className="ml-8">
           Get started by
           <button
             className="loginBtn ml-2"

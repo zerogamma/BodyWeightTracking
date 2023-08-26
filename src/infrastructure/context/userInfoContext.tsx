@@ -6,7 +6,14 @@ type ContextType = {
 };
 
 type UserIcognito = {
-  attributes: { email: string; given_name: string; family_name: string; birthdate: string };
+  attributes: {
+    email: string;
+    given_name: string;
+    family_name: string;
+    birthdate: string;
+    height: string;
+    age: string | number;
+  };
   username: string;
 };
 

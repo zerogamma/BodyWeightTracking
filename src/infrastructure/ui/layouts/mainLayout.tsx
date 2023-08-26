@@ -1,6 +1,5 @@
 import { Auth, Hub } from 'aws-amplify';
 import Head from 'next/head';
-// import { usePathname } from 'next/navigation';
 import { useContext, useEffect } from 'react';
 import { UserInfoContext } from '~/infrastructure/context/userInfoContext';
 import { Background } from '~/ui/components/Background';
@@ -11,8 +10,29 @@ import { SignIn } from '~/ui/components/SignIn';
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const { setLoggedUser, loggedUser } = useContext(UserInfoContext);
 
+  const getUserExtraData = async (response: { username: string }) => {
+    if (!response) return {};
+    const endpoint = '/api/userForm?';
+    const options = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    const responseData = await fetch(
+      endpoint + new URLSearchParams({ query: response.username.replace('google_', '') }),
+      options
+    );
+    const result = await responseData.json();
+    return result.data ? JSON.parse(result.data) : [];
+  };
+
   async function getUser() {
-    const token = await Auth.currentAuthenticatedUser();
+    const token = await Auth.currentAuthenticatedUser().then(async (response) => {
+      const extra = await getUserExtraData(response);
+      return { ...response, attributes: { ...response.attributes, ...extra } };
+    });
     setLoggedUser({ ...token, username: token.username.replace('google_', '') });
   }
 

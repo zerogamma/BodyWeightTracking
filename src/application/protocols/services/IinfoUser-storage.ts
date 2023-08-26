@@ -4,6 +4,7 @@ import { Either } from '~/shared/either';
 export interface IInfoUserStorage {
   get: (params: string) => IInfoUserStorage.output;
   save: (params: InfoUser & InfoUserBody) => IInfoUserStorage.success;
+  delete: (params: { userId: string; uniqueId: string }) => IInfoUserStorage.success;
 }
 
 export namespace IInfoUserStorage {

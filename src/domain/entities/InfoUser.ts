@@ -5,6 +5,7 @@ export type InfoUser = {
   height?: number;
   age?: number;
   name?: string;
-  userId?: number;
+  userId: string;
   date: string;
+  uniqueId: string;
 };

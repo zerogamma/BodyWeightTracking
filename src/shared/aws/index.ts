@@ -5,7 +5,7 @@ import awsExports from '../../aws-exports';
 
 Amplify.configure({ ...awsExports, ssr: true });
 
-const logger = new Logger('AWSDYNAMO');
+const logger = new Logger('DYNAMO-ACCESS');
 
 const getSettings = async () => {
   logger.info('loading credential');

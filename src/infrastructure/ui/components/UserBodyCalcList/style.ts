@@ -5,5 +5,5 @@ export const UserBodyCalcListWrapper = styled.div.attrs({
 })``;
 
 export const UserBodyCalcCard = styled.div.attrs({
-  className: 'w-24 flex justify-center border-solid border p-1 rounded-lg text-slate-950 bg-slate-200',
+  className: 'w-24 flex justify-center border-solid border p-1 rounded-lg text-slate-950 bg-slate-200 items-center',
 })``;

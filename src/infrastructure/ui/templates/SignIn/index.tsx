@@ -20,7 +20,7 @@ export const SignIn = () => {
         <div className="main">
           <div className="flex items-center gap-4">
             <Loader width="3rem" height="3rem" />
-            Loading...
+            Loading....
           </div>
         </div>
       ) : (

@@ -60,12 +60,12 @@ const validateState = (type: string, userData: InfoUserBody[] | undefined) => {
         if (actual.LM < past.LM) return 'down';
         return 'equal';
       case 'BMIS':
-        if (actual.BMI > past.BMI) return 'up';
-        if (actual.BMI < past.BMI) return 'down';
+        if (actual.BMI < past.BMI) return 'up';
+        if (actual.BMI > past.BMI) return 'down';
         return 'equal';
       case 'BFPBMIS':
-        if (actual.BFPBMI > past.BFPBMI) return 'up';
-        if (actual.BFPBMI < past.BFPBMI) return 'down';
+        if (actual.BFPBMI < past.BFPBMI) return 'up';
+        if (actual.BFPBMI > past.BFPBMI) return 'down';
         return 'equal';
       default:
         break;
